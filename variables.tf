@@ -19,3 +19,9 @@ variable "nginx_ingress_enabled" {
   type        = bool
   default     = true
 }
+
+variable "grafana_enabled" {
+  description = "Bool to enable grafana"
+  type        = bool
+  default     = true
+}
