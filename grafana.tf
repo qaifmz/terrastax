@@ -1,4 +1,5 @@
 resource "helm_release" "grafana" {
+  count        = var.grafana_enabled ? 1 : 0
   name         = "grafana"
   chart        = "grafana"
   repository   = "stable"
