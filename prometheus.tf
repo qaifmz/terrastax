@@ -1,4 +1,5 @@
 resource "helm_release" "prometheus" {
+  count        = var.prometheus_enabled ? 1 : 0
   name         = "prometheus"
   chart        = "prometheus"
   repository   = "stable"
