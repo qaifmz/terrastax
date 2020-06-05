@@ -32,6 +32,3 @@ No issue is creating limit on this module.
 
 Module managed by [insight-infrastructure](https://github.com/insight-infrastructure)
 
-## License
-
-Apache 2 Licensed. See LICENSE for full details.
