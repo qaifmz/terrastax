@@ -4,5 +4,11 @@ resource "helm_release" "nginx_ingress" {
   chart      = "nginx-ingress"
   repository =  "stable"
   create_namespace = "true"
+  namespace = "nginx-ingress"
   values = ["${file("./nginx_ingress.yaml")}"]
+
+  set {
+    name = "controller.metrics.enabled"
+    value = "true"
+  }
 }
