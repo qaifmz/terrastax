@@ -1,0 +1,29 @@
+jobs:
+  test:
+    executor: go/default
+    steps:
+      - checkout
+      - go/load-cache
+      - go/mod-download
+      - go/save-cache
+      - run:
+          command: |
+            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+            python get-pip.py
+            pip install ansible
+            wget --quiet https://releases.hashicorp.com/terraform/0.12.20/terraform_0.12.20_linux_amd64.zip
+            sudo unzip terraform_0.12.20_linux_amd64.zip -d /usr/local/bin
+          name: Install Terraform
+      - run:
+          name: Run tests
+          command: |
+            make test
+orbs:
+  go: circleci/go@0.2.0
+version: 2.1
+workflows:
+  default:
+    jobs:
+      - test
+
+  version: 2
