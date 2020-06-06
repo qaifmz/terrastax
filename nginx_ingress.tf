@@ -5,7 +5,7 @@ resource "helm_release" "nginx_ingress" {
   repository       = "stable"
   create_namespace = "true"
   namespace        = "nginx-ingress"
-  values           = ["${file("./nginx_ingress.yaml")}"]
+  values           = [file("${path.module}/nginx_ingress.yaml")]
 
   set {
     name  = "controller.metrics.enabled"

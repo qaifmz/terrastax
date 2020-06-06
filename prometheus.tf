@@ -7,7 +7,7 @@ resource "helm_release" "prometheus" {
   namespace        = "prometheus"
   wait             = true
   force_update     = true
-  values           = ["${file("./prometheus.yaml")}"]
+  values           = [file("${path.module}/prometheus.yaml")]
 
   set {
     name  = "server.enabled"

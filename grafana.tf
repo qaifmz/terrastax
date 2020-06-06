@@ -7,7 +7,7 @@ resource "helm_release" "grafana" {
   namespace        = "grafana"
   wait             = true
   force_update     = true
-  values           = ["${file("./grafana.yaml")}"]
+  values           = [file("${path.module}/grafana.yaml")]
 
   set {
     name  = "persistence.enabled"
