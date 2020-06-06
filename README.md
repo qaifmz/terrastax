@@ -1,5 +1,5 @@
 [![open-issues](https://img.shields.io/github/issues-raw/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/insight-project/issues)
-[![open-pr](https://img.shields.io/github/issues-pr-raw/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/insight-project
+[![open-pr](https://img.shields.io/github/issues-pr-raw/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/insight-project/pulls)
 
 # insight-project
 Insight Fellow Project by Qaif Shaikh - 20B DO SV
