@@ -10,3 +10,6 @@
 
 test/fixtures/keys/*
 !test/fixtures/keys/.gitkeep
+
+go.mod
+go.sum
