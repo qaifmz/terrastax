@@ -1,15 +1,15 @@
 resource "helm_release" "grafana" {
-  count        = var.grafana_enabled ? 1 : 0
-  name         = "grafana"
-  chart        = "grafana"
-  repository   = "stable"
+  count            = var.grafana_enabled ? 1 : 0
+  name             = "grafana"
+  chart            = "grafana"
+  repository       = "stable"
   create_namespace = "true"
-  namespace    = "grafana"
-  wait         = true
-  force_update = true
-  values = ["${file("./grafana.yaml")}"]
+  namespace        = "grafana"
+  wait             = true
+  force_update     = true
+  values           = ["${file("./grafana.yaml")}"]
 
-   set {
+  set {
     name  = "persistence.enabled"
     value = "true"
   }
