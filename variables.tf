@@ -1,4 +1,11 @@
-variable "region" {
+variable "id" {
+  description = "The id of the resources"
+  type        = string
+}
+
+variable "aws_region" {
+  description = "The region to deploy in"
+  type        = string
   default = "us-west-2"
 }
 
@@ -14,6 +21,12 @@ variable "prometheus_enabled" {
   default     = true
 }
 
+variable "prometheus-operator_enabled" {
+  description = "Bool to enable prometheus-operator"
+  type        = bool
+  default     = true
+}
+
 variable "nginx_ingress_enabled" {
   description = "Bool to enable nginx ingress"
   type        = bool
@@ -22,6 +35,12 @@ variable "nginx_ingress_enabled" {
 
 variable "grafana_enabled" {
   description = "Bool to enable grafana"
+  type        = bool
+  default     = true
+}
+
+variable "elastic-stack_enabled" {
+  description = "Bool to enable elastic-stack"
   type        = bool
   default     = true
 }
