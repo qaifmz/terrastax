@@ -38,7 +38,7 @@ files:
     server.name: kibana
     server.host: "0"
     ## For kibana < 6.6, use elasticsearch.url instead
-    elasticsearch.hosts: http://elasticsearch:9200
+    elasticsearch.hosts: elasticsearch-client.elk-stack.svc
 
     ## Custom config properties below
     ## Ref: https://www.elastic.co/guide/en/kibana/current/settings.html

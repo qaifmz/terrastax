@@ -2,26 +2,26 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 elasticsearch:
-  enabled: true
+  enabled: false
 
 kibana:
   enabled: true
   env:
-    ELASTICSEARCH_HOSTS: http://elastic-stack-elasticsearch-client:9200
+    ELASTICSEARCH_HOSTS: http://elk-stack-elasticsearch-client:9200
 
 logstash:
   enabled: true
   elasticsearch:
-    host: elastic-stack-elasticsearch-client
+    host: elk-stack-elasticsearch-client
 
 filebeat:
-  enabled: false
-  # config:
-  #   output.file.enabled: false
-  #   output.logstash:
-  #     hosts: ["elastic-stack-logstash:5044"]
-  # indexTemplateLoad:
-  #   - elastic-stack-elasticsearch-client:9200
+  enabled: true
+  config:
+    output.file.enabled: false
+    output.logstash:
+      hosts: ["elk-stack-logstash:5044"]
+  indexTemplateLoad:
+    - elk-stack-elasticsearch-client:9200
 
 fluentd:
   enabled: false
@@ -71,16 +71,16 @@ dependencies:
   repository: https://kubernetes-charts.storage.googleapis.com/
   condition: elasticsearch.enabled
 - name: kibana
-  version: ^3.2.0
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: ^7.7.1
+  repository: https://helm.elastic.co
   condition: kibana.enabled
 - name: filebeat
-  version: ^3.1.1
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: ^^7.7.1
+  repository: https://helm.elastic.co
   condition: filebeat.enabled
 - name: logstash
-  version: ^2.3.0
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: ^^7.7.1
+  repository: https://helm.elastic.co
   condition: logstash.enabled
 - name: fluentd
   version: ^2.2.0

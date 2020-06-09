@@ -39,8 +39,8 @@ variable "grafana_enabled" {
   default     = true
 }
 
-variable "elastic-stack_enabled" {
-  description = "Bool to enable elastic-stack"
+variable "elk-stack_enabled" {
+  description = "Bool to enable elk-stack"
   type        = bool
   default     = true
 }

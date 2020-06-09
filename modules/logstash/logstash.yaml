@@ -185,7 +185,7 @@ volumes: []
 
 exporter:
   logstash:
-    enabled: false
+    enabled: true
     image:
       repository: bonniernews/logstash_exporter
       tag: v0.1.2
@@ -226,7 +226,7 @@ exporter:
     port: metrics
 
 elasticsearch:
-  host: elasticsearch-client.default.svc.cluster.local
+  host: elasticsearch-client.elk-stack.svc.cluster.local
   port: 9200
 
 ## ref: https://github.com/elastic/logstash-docker/blob/master/build/logstash/env2yaml/env2yaml.go
