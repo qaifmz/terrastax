@@ -7,12 +7,12 @@ elasticsearch:
 kibana:
   enabled: true
   env:
-    ELASTICSEARCH_HOSTS: http://{{ .Release.Name }}-elasticsearch-client:9200
+    ELASTICSEARCH_HOSTS: http://elastic-stack-elasticsearch-client:9200
 
 logstash:
   enabled: true
-  # elasticsearch:
-  #   host: elastic-stack-elasticsearch-client
+  elasticsearch:
+    host: elastic-stack-elasticsearch-client
 
 filebeat:
   enabled: false
