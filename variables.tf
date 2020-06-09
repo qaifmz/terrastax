@@ -44,3 +44,21 @@ variable "elastic-stack_enabled" {
   type        = bool
   default     = true
 }
+
+variable "elasticsearch_enabled" {
+  description = "Bool to enable elasticsearch"
+  type        = bool
+  default     = true
+}
+
+variable "logstash_enabled" {
+  description = "Bool to enable logstash"
+  type        = bool
+  default     = true
+}
+
+variable "kibana_enabled" {
+  description = "Bool to enable kibana"
+  type        = bool
+  default     = true
+}
