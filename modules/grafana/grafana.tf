@@ -18,14 +18,4 @@ resource "helm_release" "grafana" {
     name  = "service.type"
     value = "LoadBalancer"
   }
-
-  # set {
-  #   name  = "adminPassword"
-  #   value = "insight"
-  # }
-
-  # set {
-  #   name = "dashboards"
-  #   value = ""
-  # }
 }
