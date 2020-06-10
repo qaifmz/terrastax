@@ -1,8 +1,3 @@
-data "helm_repository" "stable" {
-  name = "stable"
-  url  = "https://kubernetes-charts.storage.googleapis.com"
-}
-
 resource "helm_release" "elk-stack" {
   count            = var.elk-stack_enabled ? 1 : 0
   name             = "elk-stack"

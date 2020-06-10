@@ -17,11 +17,20 @@ logstash:
 filebeat:
   enabled: true
   config:
-    output.file.enabled: false
+    output.file.enabled: true
     output.logstash:
       hosts: ["elk-stack-logstash:5044"]
   indexTemplateLoad:
     - elk-stack-elasticsearch-client:9200
+
+filebeat:
+  enabled: true
+  # config:
+  #   output.file.enabled: false
+  #   output.logstash:
+  #     hosts: ["elk-stack-logstash:5044"]
+  # indexTemplateLoad:
+  #   - elk-stack-elasticsearch-client:9200
 
 fluentd:
   enabled: false
@@ -75,13 +84,17 @@ dependencies:
   repository: https://helm.elastic.co
   condition: kibana.enabled
 - name: filebeat
-  version: ^^7.6.2
+  version: ^7.6.2
   repository: https://helm.elastic.co
   condition: filebeat.enabled
 - name: logstash
-  version: ^^7.6.2
+  version: ^7.6.2
   repository: https://helm.elastic.co
   condition: logstash.enabled
+- name: metricbeat
+  version: ^1.7.1
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: metricbeat.enabled
 - name: fluentd
   version: ^2.2.0
   repository: https://kubernetes-charts.storage.googleapis.com/
