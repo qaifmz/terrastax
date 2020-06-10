@@ -62,3 +62,9 @@ variable "kibana_enabled" {
   type        = bool
   default     = true
 }
+
+variable "airflow_enabled" {
+  description = "Bool to enable airflow"
+  type        = bool
+  default     = true
+}
