@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 elasticsearch:
-  enabled: false
+  enabled: true
 
 kibana:
   enabled: true
@@ -67,19 +67,19 @@ elasticsearch-exporter:
 
 dependencies:
 - name: elasticsearch
-  version: ^1.32.0
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: ^7.6.2
+  repository: https://helm.elastic.co
   condition: elasticsearch.enabled
 - name: kibana
-  version: ^7.7.1
+  version: ^7.6.2
   repository: https://helm.elastic.co
   condition: kibana.enabled
 - name: filebeat
-  version: ^^7.7.1
+  version: ^^7.6.2
   repository: https://helm.elastic.co
   condition: filebeat.enabled
 - name: logstash
-  version: ^^7.7.1
+  version: ^^7.6.2
   repository: https://helm.elastic.co
   condition: logstash.enabled
 - name: fluentd
