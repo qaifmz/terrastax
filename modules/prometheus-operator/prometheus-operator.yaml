@@ -65,6 +65,30 @@ additionalPrometheusRules: []
 #        rules:
 #        - record: my_record
 #          expr: 100 * my_record
+## Provide custom recording or alerting rules to be deployed into the cluster.
+##
+
+# additionalPrometheusRules:
+#   - name: custom-rules-file
+#     groups:
+#       - name: custom-node-exporter-rules
+#         rules:
+#           - alert: PhysicalComponentTooHot
+#             expr: node_hwmon_temp_celsius > 75
+#             for: 5m
+#             labels:
+#               severity: warning
+#             annotations:
+#               summary: "Physical component too hot (instance {{ $labels.instance }})"
+#               description: "Physical hardware component too hot\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
+#           - alert: NodeOvertemperatureAlarm
+#             expr: node_hwmon_temp_alarm == 1
+#             for: 5m
+#             labels:
+#               severity: critical
+#             annotations:
+#               summary: "Node overtemperature alarm (instance {{ $labels.instance }})"
+#               description: "Physical node temperature alarm triggered\n  VALUE = {{ $value }}\n  LABELS: {{ $labels }}"
 
 ##
 global:
@@ -170,21 +194,24 @@ alertmanager:
   #           {{ end }}
 
   ingress:
-    enabled: false
+    enabled: true
 
-    annotations: {}
+    annotations: {
+      kubernetes.io/ingress.class: "nginx",
+      nginx.ingress.kubernetes.io/whitelist-source-range: "172.16.254.1"
+    }
 
     labels: {}
 
     ## Hosts must be provided if Ingress is enabled.
     ##
-    hosts: []
-      # - alertmanager.domain.com
+    hosts:
+      - alertmanager.example.com
 
     ## Paths to use for ingress rules - one path should match the alertmanagerSpec.routePrefix
     ##
-    paths: []
-    # - /
+    paths:
+      - /
 
     ## TLS configuration for Alertmanager Ingress
     ## Secret must be manually created in the namespace
@@ -496,11 +523,14 @@ grafana:
   ingress:
     ## If true, Grafana Ingress will be created
     ##
-    enabled: false
+    enabled: true
 
     ## Annotations for Grafana Ingress
     ##
-    annotations: {}
+    annotations: {
+      kubernetes.io/ingress.class: "nginx",
+      nginx.ingress.kubernetes.io/whitelist-source-range: "172.16.254.1"
+    }
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
 
@@ -513,7 +543,8 @@ grafana:
     ##
     # hosts:
     #   - grafana.domain.com
-    hosts: []
+    hosts:
+      - grafana.example.com
 
     ## Path for grafana ingress
     path: /
@@ -1423,8 +1454,11 @@ prometheus:
     maxUnavailable: ""
 
   ingress:
-    enabled: false
-    annotations: {}
+    enabled: true
+    annotations: {
+      kubernetes.io/ingress.class: "nginx",
+      nginx.ingress.kubernetes.io/whitelist-source-range: "172.16.254.1"
+    }
     labels: {}
 
     ## Hostnames.
@@ -1432,12 +1466,13 @@ prometheus:
     ##
     # hosts:
     #   - prometheus.domain.com
-    hosts: []
+    hosts: 
+      - prometheus.example.com
 
     ## Paths to use for ingress rules - one path should match the prometheusSpec.routePrefix
     ##
-    paths: []
-    # - /
+    paths:
+    - /
 
     ## TLS configuration for Prometheus Ingress
     ## Secret must be manually created in the namespace

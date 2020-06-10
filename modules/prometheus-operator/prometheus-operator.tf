@@ -1,12 +1,10 @@
 resource "helm_release" "prometheus-operator" {
   count            = var.prometheus-operator_enabled ? 1 : 0
   name             = "prometheus-operator"
-  chart            = "prometheus-operator"
-  repository       = "stable"
+  chart            = "stable/prometheus-operator"
+  repository       = data.helm_repository.stable.metadata[0].name
   create_namespace = "true"
   namespace        = "prometheus-operator"
-  wait             = true
-  force_update     = true
   values           = [file("${path.module}/prometheus-operator.yaml")]
 
   set {
