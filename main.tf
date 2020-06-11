@@ -1,12 +1,3 @@
-module "deploy-eks-clusters" {
-  source = "github.com/qaifmz/terraform-aws-eks-base"
-  id     = var.id
-}
-
-provider "aws" {
-  region = var.aws_region
-}
-
 data "helm_repository" "stable" {
   name = "stable"
   url  = "https://kubernetes-charts.storage.googleapis.com"
