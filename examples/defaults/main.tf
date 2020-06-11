@@ -6,6 +6,11 @@ provider "aws" {
   region = var.aws_region
 }
 
+module "eks" {
+  source = "github.com/qaifmz/terraform-aws-eks-base"
+  id     = var.id
+}
+
 data "aws_eks_cluster" "cluster" {
   name = module.eks.cluster_id
 }
@@ -24,10 +29,4 @@ provider "kubernetes" {
 
 resource "random_pet" "this" {
   length = 2
-}
-
-module "eks" {
-  source             = "../.."
-  prometheus_enabled = true
-  region             = var.aws_region
 }
