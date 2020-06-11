@@ -1,3 +1,4 @@
+[![Build Status](https://img.shields.io/circleci/build/github/qaifmz/insight-project/master?style=for-the-badge)](https://github.com/qaifmz/insight-project/master)
 [![open-issues](https://img.shields.io/github/issues-raw/qaifmz/insight-project??style=for-the-badge)](https://github.com/qaifmz/insight-project/issues)
 [![open-pr](https://img.shields.io/github/issues-pr-raw/qaifmz/insight-project??style=for-the-badge)](https://github.com/qaifmz/insight-project/pulls)
 
