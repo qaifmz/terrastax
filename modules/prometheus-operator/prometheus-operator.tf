@@ -6,6 +6,9 @@ resource "helm_release" "prometheus-operator" {
   create_namespace = "true"
   namespace        = "prometheus-operator"
   values           = [file("${path.module}/prometheus-operator.yaml")]
+  wait             = true
+  force_update     = true
+  # timeout          = 900
 
   set {
     name  = "server.enabled"

@@ -6,6 +6,9 @@ resource "helm_release" "nginx_ingress" {
   create_namespace = "true"
   namespace        = "nginx-ingress"
   values           = [file("${path.module}/nginx_ingress.yaml")]
+  wait             = true
+  force_update     = true
+  # timeout          = 900
 
   set {
     name  = "controller.metrics.enabled"

@@ -6,4 +6,7 @@ resource "helm_release" "elk-stack" {
   create_namespace = "true"
   namespace        = "elk-stack"
   values           = [file("${path.module}/elk-stack.yaml")]
+  wait             = true
+  force_update     = true
+  # timeout          = 900
 }

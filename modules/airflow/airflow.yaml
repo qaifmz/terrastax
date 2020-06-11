@@ -1358,13 +1358,3 @@ prometheusRule:
   ## - documentation: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
   ##
   groups: []
-
-dependencies:
-- name: postgresql
-  version: 8.6.4
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: postgresql.enabled
-- name: redis
-  version: 10.5.7
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  condition: redis.enabled

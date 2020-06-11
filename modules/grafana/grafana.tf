@@ -7,6 +7,7 @@ resource "helm_release" "grafana" {
   namespace        = "grafana"
   wait             = true
   force_update     = true
+  # timeout          = 900
   values           = [file("${path.module}/grafana.yaml")]
 
   set {
