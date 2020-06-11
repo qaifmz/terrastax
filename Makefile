@@ -14,4 +14,3 @@ test:								## Run tests
 
 test-init:							## Initialize the repo for tests
 	go mod init test && go mod tidy
-	
