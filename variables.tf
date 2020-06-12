@@ -74,3 +74,9 @@ variable "airflow_enabled" {
   type        = bool
   default     = true
 }
+
+variable "fluentd_enabled" {
+  description = "Bool to enable fluentd"
+  type        = bool
+  default     = true
+}

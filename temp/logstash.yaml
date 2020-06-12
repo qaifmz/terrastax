@@ -226,7 +226,7 @@ exporter:
     port: metrics
 
 elasticsearch:
-  host: elasticsearch-client.default.svc.cluster.local
+  host: elasticsearch-logging.default.svc.cluster.local
   port: 9200
 
 ## ref: https://github.com/elastic/logstash-docker/blob/master/build/logstash/env2yaml/env2yaml.go
