@@ -6,7 +6,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: fluentd-es
-  namespace: kube-system
+  namespace: elastic-stack
   labels:
     k8s-app: fluentd-es
     kubernetes.io/cluster-service: "true"
@@ -42,7 +42,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: fluentd-es
-  namespace: kube-system
+  namespace: elastic-stack
   apiGroup: ""
 roleRef:
   kind: ClusterRole
@@ -53,7 +53,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: fluentd-es-v2.2.0
-  namespace: kube-system
+  namespace: elastic-stack
   labels:
     k8s-app: fluentd-es
     version: v2.2.0
@@ -123,7 +123,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: elasticsearch-logging
-  namespace: kube-system
+  namespace: elastic-stack
   labels:
     k8s-app: elasticsearch-logging
     kubernetes.io/cluster-service: "true"
@@ -142,7 +142,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: elasticsearch-logging
-  namespace: kube-system
+  namespace: elastic-stack
   labels:
     k8s-app: elasticsearch-logging
     kubernetes.io/cluster-service: "true"
@@ -169,7 +169,7 @@ rules:
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  namespace: kube-system
+  namespace: elastic-stack
   name: elasticsearch-logging
   labels:
     k8s-app: elasticsearch-logging
@@ -178,7 +178,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: elasticsearch-logging
-  namespace: kube-system
+  namespace: elastic-stack
   apiGroup: ""
 roleRef:
   kind: ClusterRole
@@ -189,7 +189,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: elasticsearch-logging
-  namespace: kube-system
+  namespace: elastic-stack
   labels:
     k8s-app: elasticsearch-logging
     version: v6.2.5
@@ -243,15 +243,15 @@ spec:
         name: elasticsearch-logging-init
         securityContext:
           privileged: true
-  volumeClaimTemplates:
-  - metadata:
-      name: elasticsearch-logging
-    spec:
-      storageClassName: cloud-ssd
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 31Gi
+  # volumeClaimTemplates:
+  # - metadata:
+  #     name: elasticsearch-logging
+  #   spec:
+  #     storageClassName: cloud-ssd
+  #     accessModes: [ "ReadWriteOnce" ]
+  #     resources:
+  #       requests:
+  #         storage: 31Gi
 ---
 
 #
@@ -262,7 +262,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kibana-logging
-  namespace: kube-system
+  namespace: elastic-stack
   labels:
     k8s-app: kibana-logging
     kubernetes.io/cluster-service: "true"
@@ -301,7 +301,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kibana-logging
-  namespace: kube-system
+  namespace: elastic-stack
   labels:
     k8s-app: kibana-logging
     kubernetes.io/cluster-service: "true"

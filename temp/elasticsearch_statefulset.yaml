@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: elasticsearch
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.7.1
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
         resources:
             limits:
               cpu: 1000m
@@ -66,10 +66,12 @@ spec:
           privileged: true
   volumeClaimTemplates:
   - metadata:
-      name: elasticsearch
+      name: data
+      labels:
+        app: elasticsearch
     spec:
+      accessModes: [ "ReadWriteMany" ]
       storageClassName: do-block-storage
-      accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
-          storage: 31Gi
+          storage: 100Gi
