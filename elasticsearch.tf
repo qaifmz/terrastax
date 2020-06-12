@@ -4,7 +4,7 @@ resource "helm_release" "elasticsearch" {
   chart      = "stable/elasticsearch"
   repository = data.helm_repository.stable.metadata[0].name
   create_namespace = "true"
-  namespace  = "elk-stack"
+  namespace  = "elastic-stack"
   values     = [file("${path.module}/elasticsearch.yaml")]
   wait             = true
   force_update     = true

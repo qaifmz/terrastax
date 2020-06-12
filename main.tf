@@ -20,4 +20,6 @@ data "helm_repository" "elastic" {
 
 locals {
   prometheus-operator_enabled     = var.all_enabled ? true : var.prometheus-operator_enabled
+  elastic-stack_enabled           = var.all_enabled ? true : var.elastic-stack_enabled
+  airflow_enabled                 = var.all_enabled ? true : var.airflow_enabled
 }

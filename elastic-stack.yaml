@@ -1,36 +1,30 @@
-# Default values for elk.
+# Default values for elastic.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 elasticsearch:
-  enabled: true
+  enabled: false
 
 kibana:
   enabled: true
   env:
-    ELASTICSEARCH_HOSTS: http://elk-stack-elasticsearch-client:9200
+    ELASTICSEARCH_HOSTS: http://elastic-stack-elasticsearch-client:9200
 
 logstash:
   enabled: true
   elasticsearch:
-    host: elk-stack-elasticsearch-client
+    host: elastic-stack-elasticsearch-client
 
 filebeat:
   enabled: true
   config:
     output.file.enabled: true
     output.logstash:
-      hosts: ["elk-stack-logstash:5044"]
+      hosts: ["elastic-stack-logstash:5044"]
   indexTemplateLoad:
-    - elk-stack-elasticsearch-client:9200
+    - elastic-stack-elasticsearch-client:9200
 
-# filebeat:
-#   enabled: true
-  # config:
-  #   output.file.enabled: false
-  #   output.logstash:
-  #     hosts: ["elk-stack-logstash:5044"]
-  # indexTemplateLoad:
-  #   - elk-stack-elasticsearch-client:9200
+metricbeat:
+  enabled: true
 
 fluentd:
   enabled: false
@@ -47,7 +41,7 @@ nginx-ldapauth-proxy:
   # proxy:
   #   port: 5601
   #   # This is the internal hostname for the kibana service
-  #   host: "elk-kibana.default.svc.cluster.local"
+  #   host: "elastic-kibana.default.svc.cluster.local"
   #   authName: "ELK:Infrastructure:LDAP"
   #   ldapHost: "ldap.example.com"
   #   ldapDN: "dc=example,dc=com"
@@ -55,17 +49,17 @@ nginx-ldapauth-proxy:
   #   ldapBindDN: "cn=reader,dc=example,dc=com"
   #   requires:
   #     - name: "ELK-USER"
-  #       filter: "cn=elkuser,ou=groups,dc=example,dc=com"
+  #       filter: "cn=elasticuser,ou=groups,dc=example,dc=com"
   # ingress:
   #   enabled: true
   #   hosts:
-  #     - "elk.example.com"
+  #     - "elastic.example.com"
   #   annotations:
   #     kubernetes.io/ingress.class: nginx
   #   tls:
   #     - hosts:
-  #       - elk.example.com
-  #       secretName: example-elk-tls
+  #       - elastic.example.com
+  #       secretName: example-elastic-tls
   # secrets:
   #   ldapBindPassword: PASSWORD
 elasticsearch-curator:
@@ -76,24 +70,24 @@ elasticsearch-exporter:
 
 dependencies:
 - name: elasticsearch
-  version: ^7.6.2
+  version: ^7.7.1
   repository: https://helm.elastic.co
   condition: elasticsearch.enabled
 - name: kibana
-  version: ^7.6.2
+  version: ^7.7.1
   repository: https://helm.elastic.co
   condition: kibana.enabled
 - name: filebeat
-  version: ^7.6.2
+  version: ^7.7.1
   repository: https://helm.elastic.co
   condition: filebeat.enabled
 - name: logstash
-  version: ^7.6.2
+  version: ^7.7.1
   repository: https://helm.elastic.co
   condition: logstash.enabled
 - name: metricbeat
-  version: ^1.7.1
-  repository: https://kubernetes-charts.storage.googleapis.com/
+  version: ^7.7.1
+  repository: https://helm.elastic.co
   condition: metricbeat.enabled
 - name: fluentd
   version: ^2.2.0

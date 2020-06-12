@@ -39,7 +39,7 @@ variable "grafana_enabled" {
   default     = true
 }
 
-variable "elk-stack_enabled" {
+variable "elastic-stack_enabled" {
   description = "Bool to enable elk-stack"
   type        = bool
   default     = true
@@ -59,6 +59,12 @@ variable "logstash_enabled" {
 
 variable "kibana_enabled" {
   description = "Bool to enable kibana"
+  type        = bool
+  default     = true
+}
+
+variable "metricbeat_enabled" {
+  description = "Bool to enable metricbeat"
   type        = bool
   default     = true
 }
