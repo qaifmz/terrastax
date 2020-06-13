@@ -1,0 +1,15 @@
+volumeClaimTemplate:
+  accessModes: [ "ReadWriteOnce" ]
+  resources:
+    requests:
+      storage: 30Gi
+
+persistence:
+  enabled: true
+  annotations: {}
+
+service:
+  type: LoadBalancer
+  annotations: {service.beta.kubernetes.io/aws-load-balancer-internal: "true"}
+
+antiAffinity: "soft"
