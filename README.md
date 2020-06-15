@@ -2,7 +2,7 @@
 [![open-issues](https://img.shields.io/github/issues/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/insight-project/issues)
 [![open-pr](https://img.shields.io/github/issues-pr/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/insight-project/pulls)
 
-# insight-project
+# TerraStax
 Insight Fellow Project by Qaif Shaikh - 20B DO SV
 
 ## Features
