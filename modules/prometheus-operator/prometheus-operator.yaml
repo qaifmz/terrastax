@@ -517,6 +517,13 @@ grafana:
         editable: true
         options:
           path: /var/lib/dashboards
+  
+  # dashboards:
+  #   default:
+  #    node-exporter:
+  #      gnetId: 1860
+  #      revision: 14
+  #      datasource: Prometheus
 
   adminPassword: admin
 
