@@ -1,14 +1,19 @@
+provider "helm" {}
+
+data "helm_repository" "stable" {
+  name = "stable"
+  url  = "https://kubernetes-charts.storage.googleapis.com"
+}
+
 resource "helm_release" "nginx_ingress" {
-  count            = var.nginx_ingress_enabled ? 1 : 0
   name             = "nginx-ingress"
-  chart            = "nginx-ingress"
-  repository       = "stable"
+  chart            = "stable/nginx-ingress"
+  repository       = data.helm_repository.stable.metadata[0].name
   create_namespace = "true"
-  namespace        = "nginx-ingress"
+  namespace        = "kube-system"
   values           = [file("${path.module}/nginx_ingress.yaml")]
   wait             = true
   force_update     = true
-  # timeout          = 900
 
   set {
     name  = "controller.metrics.enabled"
