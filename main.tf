@@ -1,29 +1,32 @@
-provider "helm" {
-  
+# module "this" {
+#   source = "github.com/qaifmz/terraform-aws-eks-base"
+#   id = "amz"
+# }
+
+module "nginx_ingress" {
+  source = "./modules/nginx_ingress"
 }
 
-data "helm_repository" "stable" {
-  name = "stable"
-  url  = "https://kubernetes-charts.storage.googleapis.com"
+module "prometheus-operator" {
+  source = "./modules/prometheus-operator"
 }
 
-data "helm_repository" "bitnami" {
-  name = "bitnami"
-  url  = "https://charts.bitnami.com/bitnami"
+module "elk-stack" {
+  source = "./modules/elk-stack"
 }
 
-data "helm_repository" "jetstack" {
-  name = "jetstack"
-  url  = "https://charts.jetstack.io"
+module "fluentd" {
+  source = "./modules/fluentd"
 }
 
-data "helm_repository" "elastic" {
-  name = "elastic"
-  url  = "https://helm.elastic.co"
+module "airflow" {
+  source = "./modules/airflow"
 }
 
-locals {
-  prometheus-operator_enabled     = var.all_enabled ? true : var.prometheus-operator_enabled
-  elastic-stack_enabled           = var.all_enabled ? true : var.elastic-stack_enabled
-  airflow_enabled                 = var.all_enabled ? true : var.airflow_enabled
-}
+# locals {
+#   nginx_ingress_enabled       = var.all_enabled ? true : var.nginx_ingress_enabled
+#   prometheus-operator_enabled = var.all_enabled ? true : var.prometheus-operator_enabled
+#   fluentd_enabled             = var.all_enabled ? true : var.fluentd_enabled
+#   elk-stack_enabled           = var.all_enabled ? true : var.elk-stack_enabled
+#   airflow_enabled             = var.all_enabled ? true : var.airflow_enabled
+# }
