@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/circleci/build/github/qaifmz/terrastax/master?style=for-the-badge)](https://github.com/qaifmz/insight-project/master)
+
 [![open-issues](https://img.shields.io/github/issues/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/terrastax/issues)
 [![open-pr](https://img.shields.io/github/issues-pr/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/terrastax/pulls)
 
