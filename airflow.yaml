@@ -136,7 +136,8 @@ airflow:
   ##   extraPipPackages:
   ##     - "airflow-exporter==1.3.1"
   ##
-  extraPipPackages: []
+  extraPipPackages: 
+    - "airflow-prometheus-exporter"
 
   ## extra volumeMounts for the web/scheduler/worker Pods
   ##
@@ -382,7 +383,8 @@ web:
   ##   extraPipPackages:
   ##     - "apache-airflow[google_auth]==1.10.10"
   ##
-  extraPipPackages: []
+  extraPipPackages:
+    - "apache-airflow[google_auth]"
 
   ## the number of seconds to wait (in bash) before starting the web container
   ##
@@ -1317,7 +1319,7 @@ serviceMonitor:
   ## - you can install pip packages with `airflow.extraPipPackages`
   ## - ServiceMonitor is a resource from: https://github.com/coreos/prometheus-operator
   ##
-  enabled: false
+  enabled: true
 
   ## labels for ServiceMonitor, so that Prometheus can select it
   ##
@@ -1346,7 +1348,7 @@ prometheusRule:
   ## - you can install pip packages with `airflow.extraPipPackages`
   ## - PrometheusRule a resource from: https://github.com/coreos/prometheus-operator
   ##
-  enabled: false
+  enabled: true
 
   ## labels for PrometheusRule, so that Prometheus can select it
   ##
@@ -1358,3 +1360,13 @@ prometheusRule:
   ## - documentation: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
   ##
   groups: []
+
+dependencies:
+- name: postgresql
+  version: 8.6.4
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: postgresql.enabled
+- name: redis
+  version: 10.5.7
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: redis.enabled
