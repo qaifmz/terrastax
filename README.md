@@ -7,7 +7,7 @@ Insight Fellow Project by Qaif Shaikh - 20B DO SV
 
 ## Features
 
-This module sets up a network and EKS cluster on AWS and deploys a list of Helm Charts on them.
+This module deploys a list of Helm Charts on EKS Clusters.
 
 ## Terraform Versions
 
@@ -17,13 +17,13 @@ For Terraform v0.12.24+
 
 ```
 module "this" {
-    source = "github.com/insight-infrastructure/terraform-k8s-config-analytics"
+    source = "github.com/qaifmz/terrastax"
 
 }
 ```
 ## Examples
 
-- [defaults](https://github.com/insight-infrastructure/terraform-k8s-config-analytics/tree/master/examples/defaults)
+- [defaults](https://github.com/qaifmz/terrastax/examples/defaults)
 
 ## Known  Issues
 No issue is creating limit on this module.
