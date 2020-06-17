@@ -1708,7 +1708,11 @@ prometheus:
     ## If {}, select all ServiceMonitors
     ##
     ## Example which selects ServiceMonitors with label "prometheus" set to "somelabel"
+    
     serviceMonitorSelector: {}
+    # serviceMonitorSelector: 
+    #   matchLabels:
+    #     prometheus: kube-prometheus
 
     ## Namespaces to be selected for ServiceMonitor discovery.
     ## See https://github.com/coreos/prometheus-operator/blob/master/Documentation/api.md#namespaceselector for usage
