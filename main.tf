@@ -1,7 +1,7 @@
-# module "this" {
-#   source = "github.com/qaifmz/terraform-aws-eks-base"
-#   id = "amz"
-# }
+module "eks" {
+  source = "github.com/qaifmz/terraform-aws-eks-base"
+  id = "amz"
+}
 
 module "nginx_ingress" {
   source = "./modules/nginx_ingress"
