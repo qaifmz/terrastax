@@ -14,7 +14,7 @@ resource "null_resource" "create-elk-stack" {
 
 resource "null_resource" "destroy-elk-stack" {
   provisioner "local-exec" {
-     when = "destroy"
-     command = "kubectl delete -f -<<EOF\n${data.template_file.elk-stack.rendered}\nEOF"
-    }
+    when    = "destroy"
+    command = "kubectl delete -f -<<EOF\n${data.template_file.elk-stack.rendered}\nEOF"
+  }
 }

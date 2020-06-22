@@ -17,7 +17,7 @@ resource "null_resource" "fluentd-config" {
 
 resource "null_resource" "destroy-fluentd-config" {
   provisioner "local-exec" {
-     when = "destroy"
-     command = "kubectl delete -f -<<EOF\n${data.template_file.fluentd-config.rendered}\nEOF"
-    }
+    when    = "destroy"
+    command = "kubectl delete -f -<<EOF\n${data.template_file.fluentd-config.rendered}\nEOF"
+  }
 }
