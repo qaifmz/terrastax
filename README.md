@@ -50,11 +50,11 @@ Initialize and Run Terraform Scripts
 terraform init
 terraform apply
 ```
-Default Cluster name = `"amz"` and input your choice of AWS Region: `us-west-2`
+Default Cluster name = `"terrastax"` and AWS Region: `us-west-2`
 
 If the output gives connection errors, input the following commands:
 ```
-aws eks --region us-west-2 update-kubeconfig --name amz
+aws eks --region us-west-2 update-kubeconfig --name terrastax
 terraform apply
 ```
 
@@ -78,27 +78,36 @@ kubectl --namespace=kube-system port-forward svc/elasticsearch-logging 9200
 No issue is creating limit on this module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+No requirements.
+
 ## Providers
 
-| Name | Version |
-|------|---------|
-| helm | n/a |
+No provider.
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:-----:|
+|------|-------------|------|---------|:--------:|
+| airflow\_enabled | Bool to enable airflow | `bool` | `true` | no |
 | all\_enabled | Bool to enable all services | `bool` | `true` | no |
-| grafana\_enabled | Bool to enable grafana | `bool` | `true` | no |
+| aws\_region | The region to deploy in | `string` | `"us-west-2"` | no |
+| elk-stack\_enabled | Bool to enable elk-stack | `bool` | `true` | no |
+| fluentd\_enabled | Bool to enable fluentd | `bool` | `true` | no |
+| id | The id of the resources | `string` | `"amz"` | no |
 | nginx\_ingress\_enabled | Bool to enable nginx ingress | `bool` | `true` | no |
-| prometheus\_enabled | Bool to enable prometheus | `bool` | `true` | no |
-| region | n/a | `string` | `"us-west-2"` | no |
+| prometheus-operator\_enabled | Bool to enable prometheus-operator | `bool` | `true` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| cluster\_id | n/a |
+| airflow | Airflow installed |
+| elk-stack | ELK Stack installed |
+| fluentd | Fluentd installed |
+| nginx\_ingress | Nginx Ingress installed |
+| prometheus-operator | Prometheus Operator installed |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
