@@ -1,4 +1,6 @@
-
+<!---
+[![Build Status](https://img.shields.io/circleci/build/github/qaifmz/terrastax?style=for-the-badge)](https://github.com/qaifmz/terrastax)
+-->
 [![open-issues](https://img.shields.io/github/issues/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/terrastax/issues)
 [![open-pr](https://img.shields.io/github/issues-pr/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/terrastax/pulls)
 
