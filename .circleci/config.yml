@@ -14,7 +14,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-          #  make test-init
+            make test-init
             make test
 
 orbs:
