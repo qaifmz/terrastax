@@ -14,8 +14,8 @@ jobs:
       - run:
           name: Run tests
           command: |
-          # make test-init
-            make test
+            make test-init
+          #  make test
 
 orbs:
   go: circleci/go@0.2.0
