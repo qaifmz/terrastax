@@ -13,4 +13,5 @@ test:								## Run tests
 	go test ./test -v -timeout 45m
 
 test-init:							## Initialize the repo for tests
-	go mod init test && go mod tidy
+	go mod tidy
+	# go mod init test
