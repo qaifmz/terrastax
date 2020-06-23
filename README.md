@@ -47,7 +47,7 @@ Default output format [None]: json
 
 ### Testing the Project
 
-This project uses the [terraform-aws-eks-base!](https://github.com/qaifmz/terraform-aws-eks-base) repository as a module to deploy the EKS Clusters
+This project uses the [terraform-aws-eks-base](https://github.com/qaifmz/terraform-aws-eks-base) repository as a module to deploy the EKS Clusters
 
 Initialize and Run Terraform Scripts
 ```
