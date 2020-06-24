@@ -1,6 +1,8 @@
 jobs:
   test:
     executor: go/default
+    environment:
+          GO111MODULE: "on"
     steps:
       - checkout
       - go/load-cache
