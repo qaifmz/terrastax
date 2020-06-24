@@ -1,6 +1,4 @@
-<!---
 [![Build Status](https://img.shields.io/circleci/build/github/qaifmz/terrastax?style=for-the-badge)](https://github.com/qaifmz/terrastax)
--->
 [![open-issues](https://img.shields.io/github/issues/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/terrastax/issues)
 [![open-pr](https://img.shields.io/github/issues-pr/qaifmz/insight-project?style=for-the-badge)](https://github.com/qaifmz/terrastax/pulls)
 
@@ -47,8 +45,6 @@ Default output format [None]: json
 
 ### Testing the Project
 
-This project uses the [terraform-aws-eks-base](https://github.com/qaifmz/terraform-aws-eks-base) repository as a module to deploy the EKS Clusters
-
 Initialize and Run Terraform Scripts
 ```
 terraform init
@@ -84,11 +80,15 @@ No issue is creating limit on this module.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| kubernetes | 1.10 |
 
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| aws | n/a |
 
 ## Inputs
 
