@@ -1,3 +1,4 @@
+# Create Template
 data "template_file" "fluentd-config" {
   template = "${file("${path.module}/fluentd-config.yaml")}"
   vars = {
@@ -5,16 +6,18 @@ data "template_file" "fluentd-config" {
   }
 }
 
+# Render template
 resource "null_resource" "fluentd-config" {
   triggers = {
     manifest_sha1 = "${sha1("${data.template_file.fluentd-config.rendered}")}"
   }
-
+  # Run Command to create services
   provisioner "local-exec" {
     command = "kubectl create -f -<<EOF\n${data.template_file.fluentd-config.rendered}\nEOF"
   }
 }
 
+# Run Command on Destroy
 resource "null_resource" "destroy-fluentd-config" {
   provisioner "local-exec" {
     when    = "destroy"

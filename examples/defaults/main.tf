@@ -1,5 +1,13 @@
+variable "id" {
+  description = "The id of the resources"
+  type        = string
+  default     = "amz"
+}
+
 variable "aws_region" {
-  default = "us-west-2"
+  description = "The region to deploy in"
+  type        = string
+  default     = "us-west-2"
 }
 
 provider "aws" {

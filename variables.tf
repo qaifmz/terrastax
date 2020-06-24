@@ -8,14 +8,14 @@ variable "id" {
   default     = "amz"
 }
 
-provider "aws" {
-  region = var.aws_region
-}
-
 variable "aws_region" {
   description = "The region to deploy in"
   type        = string
   default     = "us-west-2"
+}
+
+provider "aws" {
+  region = var.aws_region
 }
 
 ##########
