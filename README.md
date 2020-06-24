@@ -18,7 +18,6 @@ For Terraform v0.12.24+
 ```
 module "this" {
     source = "github.com/qaifmz/terrastax"
-
 }
 ```
 
@@ -127,4 +126,3 @@ To run them:
 ## Authors
 
 Module managed by [qaifmz](https://github.com/qaifmz)
-
