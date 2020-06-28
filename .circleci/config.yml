@@ -8,12 +8,6 @@ jobs:
       - go/save-cache
       - run:
           command: |
-            curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-            chmod +x ./kubectl
-            sudo mv ./kubectl /usr/local/bin/kubectl
-          name: Install kubectl
-      - run:
-          command: |
             wget --quiet https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
             sudo unzip terraform_0.12.26_linux_amd64.zip -d /usr/local/bin
           name: Install Terraform

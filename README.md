@@ -11,7 +11,7 @@ This module deploys EKS Clusters on AWS and installs a list of Helm Charts on th
 
 ## Terraform Versions
 
-For Terraform v0.12.26+
+For Terraform v0.12.24+
 
 ## Usage
 
@@ -79,11 +79,15 @@ No issue is creating limit on this module.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| kubernetes | 1.10 |
 
 ## Providers
 
-No provider.
+| Name | Version |
+|------|---------|
+| aws | n/a |
 
 ## Inputs
 
@@ -103,13 +107,6 @@ No provider.
 | Name | Description |
 |------|-------------|
 | airflow | Airflow installed |
-| cluster\_arn | The Amazon Resource Name (ARN) of the cluster. |
-| cluster\_certificate\_authority\_data | Nested attribute containing certificate-authority-data for your cluster. This is the base64 encoded certificate data required to communicate with your cluster. |
-| cluster\_endpoint | The endpoint for your EKS Kubernetes API. |
-| cluster\_id | The name/id of the EKS cluster. |
-| cluster\_security\_group\_id | Security group ID attached to the EKS cluster. |
-| cluster\_version | The Kubernetes server version for the EKS cluster. |
-| config\_map\_aws\_auth | A kubernetes configuration to authenticate to this EKS cluster. |
 | elk-stack | ELK Stack installed |
 | fluentd | Fluentd installed |
 | nginx\_ingress | Nginx Ingress installed |
