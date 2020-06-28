@@ -9,14 +9,14 @@ resource "random_pet" "this" {
 # Provider
 ##############
 
-variable "region" {
+variable "aws_region" {
   description = "The region to deploy in"
   type        = string
   default     = "us-west-2"
 }
 
 provider "aws" {
-  region = var.region
+  region = var.aws_region
 }
 
 ##############
