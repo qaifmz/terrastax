@@ -11,7 +11,7 @@ This module deploys EKS Clusters on AWS and installs a list of Helm Charts on th
 
 ## Terraform Versions
 
-For Terraform v0.12.24+
+For Terraform v0.12.26+
 
 ## Usage
 
