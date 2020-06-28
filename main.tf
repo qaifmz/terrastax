@@ -4,18 +4,30 @@ module "eks" {
   id     = var.id
 }
 
-data "aws_eks_cluster" "cluster" {
-  name = module.eks.cluster_id
+module "nginx_ingress" {
+  source = "./modules/nginx_ingress"
 }
 
-data "aws_eks_cluster_auth" "cluster" {
-  name = module.eks.cluster_id
+module "prometheus-operator" {
+  source = "./modules/prometheus-operator"
 }
 
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-  token                  = data.aws_eks_cluster_auth.cluster.token
-  load_config_file       = false
-  version                = "1.10"
+module "elk-stack" {
+  source = "./modules/elk-stack"
 }
+
+module "fluentd" {
+  source = "./modules/fluentd"
+}
+
+module "airflow" {
+  source = "./modules/airflow"
+}
+
+# locals {
+#   nginx_ingress_enabled       = var.all_enabled ? true : var.nginx_ingress_enabled
+#   prometheus-operator_enabled = var.all_enabled ? true : var.prometheus-operator_enabled
+#   fluentd_enabled             = var.all_enabled ? true : var.fluentd_enabled
+#   elk-stack_enabled           = var.all_enabled ? true : var.elk-stack_enabled
+#   airflow_enabled             = var.all_enabled ? true : var.airflow_enabled
+# }
