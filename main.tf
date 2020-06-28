@@ -1,7 +1,7 @@
 
 module "eks" {
   source = "github.com/qaifmz/terraform-aws-eks-base"
-  id     = var.id
+  id     = random_pet.this.id
 }
 
 module "nginx_ingress" {

@@ -1,11 +1,8 @@
 ##########
-# Cluster
+# Base
 ##########
-
-variable "id" {
-  description = "The id of the resources"
-  type        = string
-  default     = "amz"
+resource "random_pet" "this" {
+  length = 2
 }
 
 variable "aws_region" {
@@ -21,7 +18,6 @@ provider "aws" {
 ##########
 # Modules
 ##########
-
 variable "all_enabled" {
   description = "Bool to enable all services"
   type        = bool
