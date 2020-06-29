@@ -5,9 +5,15 @@ data "template_file" "fluentd-config" {
     "hostname" = "prometheus"
   }
 }
+variable "fluentd_enabled" {
+  description = "Bool to enable fluentd"
+  type        = bool
+  default     = true
+}
 
 # Render template
 resource "null_resource" "fluentd-config" {
+  count = var.fluentd_enabled ? 1 : 0
   triggers = {
     manifest_sha1 = "${sha1("${data.template_file.fluentd-config.rendered}")}"
   }
@@ -19,6 +25,7 @@ resource "null_resource" "fluentd-config" {
 
 # Run Command on Destroy
 resource "null_resource" "destroy-fluentd-config" {
+  count = var.fluentd_enabled ? 1 : 0
   provisioner "local-exec" {
     when    = "destroy"
     command = "kubectl delete -f -<<EOF\n${data.template_file.fluentd-config.rendered}\nEOF"

@@ -7,8 +7,15 @@ data "helm_repository" "stable" {
   url  = "https://kubernetes-charts.storage.googleapis.com"
 }
 
+variable "airflow_enabled" {
+  description = "Bool to enable airflow"
+  type        = bool
+  default     = false
+}
+
 # Deploy Helm Chart
 resource "helm_release" "airflow" {
+  count            = var.airflow_enabled ? 1 : 0
   name             = "airflow"
   chart            = "stable/airflow"
   repository       = data.helm_repository.stable.metadata[0].name
