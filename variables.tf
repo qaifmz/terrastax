@@ -2,7 +2,7 @@
 # Base
 ##########
 resource "random_pet" "this" {
-  length = 2
+  length = 1
 }
 
 variable "aws_region" {

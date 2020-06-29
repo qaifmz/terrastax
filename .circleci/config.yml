@@ -7,7 +7,7 @@ jobs:
       - go/mod-download
       - go/save-cache
       - kube-orb/install-kubectl
-      
+
       - run:
           command: |
             wget --quiet https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
@@ -21,7 +21,7 @@ jobs:
 
 orbs:
   go: circleci/go@0.2.0
-  kube-orb: circleci/kubernetes@1.10.0
+  kube-orb: circleci/kubernetes@0.11.0
 version: 2.1
 workflows:
   default:
