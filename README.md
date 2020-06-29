@@ -96,7 +96,7 @@ No requirements.
 | aws\_region | The region to deploy in | `string` | `"us-west-2"` | no |
 | elk-stack\_enabled | Bool to enable elk-stack | `bool` | `true` | no |
 | fluentd\_enabled | Bool to enable fluentd | `bool` | `true` | no |
-| id | The id of the resources | `string` | n/a | yes |
+| id | The id of the resources | `string` | `"amz"` | no |
 | nginx\_ingress\_enabled | Bool to enable nginx ingress | `bool` | `true` | no |
 | prometheus-operator\_enabled | Bool to enable prometheus-operator | `bool` | `true` | no |
 

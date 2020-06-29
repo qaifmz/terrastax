@@ -8,7 +8,7 @@ resource "random_pet" "this" {
 variable "id" {
   description = "The id of the resources"
   type        = string
-  # default     = "amz"
+  default     = "amz"
 }
 
 ##############
