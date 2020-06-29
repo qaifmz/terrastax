@@ -10,7 +10,7 @@ data "helm_repository" "stable" {
 variable "airflow_enabled" {
   description = "Bool to enable airflow"
   type        = bool
-  default     = false
+  default     = true
 }
 
 # Deploy Helm Chart
