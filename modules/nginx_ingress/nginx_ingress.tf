@@ -7,8 +7,15 @@ data "helm_repository" "stable" {
   url  = "https://kubernetes-charts.storage.googleapis.com"
 }
 
+variable "nginx_ingress_enabled" {
+  description = "Bool to enable nginx ingress"
+  type        = bool
+  default     = true
+}
+
 # Deploy Helm Chart
 resource "helm_release" "nginx_ingress" {
+  count            = var.nginx_ingress_enabled ? 1 : 0
   name             = "nginx-ingress"
   chart            = "stable/nginx-ingress"
   repository       = data.helm_repository.stable.metadata[0].name

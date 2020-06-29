@@ -7,8 +7,15 @@ data "helm_repository" "stable" {
   url  = "https://kubernetes-charts.storage.googleapis.com"
 }
 
+variable "prometheus-operator_enabled" {
+  description = "Bool to enable prometheus-operator"
+  type        = bool
+  default     = true
+}
+
 # Deploy Helm Chart
 resource "helm_release" "prometheus-operator" {
+  count            = var.prometheus-operator_enabled ? 1 : 0
   name             = "prometheus-operator"
   chart            = "stable/prometheus-operator"
   repository       = data.helm_repository.stable.metadata[0].name
