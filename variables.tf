@@ -5,6 +5,14 @@ resource "random_pet" "this" {
   length = 1
 }
 
+
+variable "id" {
+  description = "The id of the resources"
+  type        = string
+  #  default     = "amz"
+}
+
+
 variable "aws_region" {
   description = "The region to deploy in"
   type        = string

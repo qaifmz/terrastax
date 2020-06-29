@@ -5,6 +5,12 @@ resource "random_pet" "this" {
   length = 1
 }
 
+variable "id" {
+  description = "The id of the resources"
+  type        = string
+  # default     = "amz"
+}
+
 ##############
 # Provider
 ##############
@@ -25,7 +31,7 @@ provider "aws" {
 
 module "defaults" {
   source = "../.."
-  id     = random_pet.this.id
+  id     = var.id
 }
 
 data "aws_eks_cluster" "cluster" {
