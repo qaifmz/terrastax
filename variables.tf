@@ -47,13 +47,13 @@ variable "prometheus-operator_enabled" {
 variable "fluentd_enabled" {
   description = "Bool to enable fluentd"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "elk-stack_enabled" {
   description = "Bool to enable elk-stack"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "airflow_enabled" {

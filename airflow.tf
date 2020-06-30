@@ -1,11 +1,3 @@
-# Helm Provider
-provider "helm" {}
-
-# Helm Chart Stable Repo
-data "helm_repository" "stable" {
-  name = "stable"
-  url  = "https://kubernetes-charts.storage.googleapis.com"
-}
 
 # Deploy Helm Chart
 resource "helm_release" "airflow" {

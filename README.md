@@ -85,7 +85,10 @@ No requirements.
 
 | Name | Version |
 |------|---------|
+| helm | n/a |
+| null | n/a |
 | random | n/a |
+| template | n/a |
 
 ## Inputs
 
@@ -94,8 +97,8 @@ No requirements.
 | airflow\_enabled | Bool to enable airflow | `bool` | `true` | no |
 | all\_enabled | Bool to enable all services | `bool` | `true` | no |
 | aws\_region | The region to deploy in | `string` | `"us-west-2"` | no |
-| elk-stack\_enabled | Bool to enable elk-stack | `bool` | `true` | no |
-| fluentd\_enabled | Bool to enable fluentd | `bool` | `true` | no |
+| elk-stack\_enabled | Bool to enable elk-stack | `bool` | `false` | no |
+| fluentd\_enabled | Bool to enable fluentd | `bool` | `false` | no |
 | id | The id of the resources | `string` | `"amz"` | no |
 | nginx\_ingress\_enabled | Bool to enable nginx ingress | `bool` | `true` | no |
 | prometheus-operator\_enabled | Bool to enable prometheus-operator | `bool` | `true` | no |
