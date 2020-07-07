@@ -74,7 +74,7 @@ kubectl --namespace=kube-system port-forward svc/elasticsearch-logging 9200
 - [defaults](https://github.com/qaifmz/terrastax/tree/dev/examples/defaults)
 
 ## Known  Issues
-No issue is creating limit on this module.
+Airflow metrics exporter for Prometheus is Disabled.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
