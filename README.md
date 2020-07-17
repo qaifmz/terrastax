@@ -3,7 +3,7 @@
 [![open-pr](https://img.shields.io/github/issues-pr/qaifmz/terrastax?style=for-the-badge)](https://github.com/qaifmz/terrastax/pulls)
 
 # TerraStax for AWS
-An Insight Fellow Project by Qaif Shaikh - 20B DO SV
+An Insight Fellow Project by [Qaif Shaikh](https://www.linkedin.com/in/qaifamz) - 20B DO SV
 
 ## Features
 
@@ -11,7 +11,7 @@ This module deploys EKS Clusters on AWS and installs a list of Helm Charts on th
 
 ## Terraform Versions
 
-For Terraform v0.12.24+
+For Terraform v0.12.26+
 
 ## Usage
 
