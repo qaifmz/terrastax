@@ -94,8 +94,8 @@ No requirements.
 |------|-------------|------|---------|:--------:|
 | admin\_password | Grafana admin password | `string` | `"admin"` | no |
 | all\_enabled | Bool to enable all services | `bool` | `true` | no |
-| aws\_region | The region to deploy in | `string` | `"us-west-2"` | no |
-| id | The id of the resources | `string` | `"amz"` | no |
+| aws\_region | The region to deploy in | `string` | n/a | yes |
+| id | The id of the resources | `string` | n/a | yes |
 | prometheus-operator\_enabled | Bool to enable prometheus-operator | `bool` | `true` | no |
 
 ## Outputs
