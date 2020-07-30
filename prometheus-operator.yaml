@@ -525,7 +525,7 @@ grafana:
   #      revision: 14
   #      datasource: Prometheus
 
-  adminPassword: admin
+  adminPassword: ${admin_password}
 
   ingress:
     ## If true, Grafana Ingress will be created
@@ -1858,7 +1858,7 @@ prometheus:
       - job_name: 'airflow'
         metrics_path: /admin/metrics
         static_configs: 
-        - targets: ['localhost:8080']
+        - targets: ['${airflow_host}:8080']
 
     # - job_name: kube-etcd
     #   kubernetes_sd_configs:

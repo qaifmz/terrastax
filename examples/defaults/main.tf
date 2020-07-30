@@ -5,33 +5,12 @@ resource "random_pet" "this" {
   length = 1
 }
 
-variable "id" {
-  description = "The id of the resources"
-  type        = string
-  default     = "amz"
-}
-
-##############
-# Provider
-##############
-
-variable "aws_region" {
-  description = "The region to deploy in"
-  type        = string
-  default     = "us-west-2"
-}
-
-provider "aws" {
-  region = var.aws_region
-}
-
 ##############
 # Base
 ##############
 
 module "defaults" {
   source = "../.."
-  id     = var.id
 }
 
 data "aws_eks_cluster" "cluster" {
