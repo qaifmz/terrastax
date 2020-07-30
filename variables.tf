@@ -9,7 +9,6 @@ resource "random_pet" "this" {
 variable "id" {
   description = "The id of the resources"
   type        = string
-  default     = "amz"
 }
 
 
@@ -32,32 +31,8 @@ variable "all_enabled" {
   default     = true
 }
 
-variable "nginx_ingress_enabled" {
-  description = "Bool to enable nginx ingress"
-  type        = bool
-  default     = true
-}
-
 variable "prometheus-operator_enabled" {
   description = "Bool to enable prometheus-operator"
-  type        = bool
-  default     = true
-}
-
-variable "fluentd_enabled" {
-  description = "Bool to enable fluentd"
-  type        = bool
-  default     = false
-}
-
-variable "elk-stack_enabled" {
-  description = "Bool to enable elk-stack"
-  type        = bool
-  default     = false
-}
-
-variable "airflow_enabled" {
-  description = "Bool to enable airflow"
   type        = bool
   default     = true
 }

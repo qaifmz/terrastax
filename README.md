@@ -86,28 +86,21 @@ No requirements.
 | Name | Version |
 |------|---------|
 | helm | n/a |
-| null | n/a |
 | random | n/a |
-| template | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| airflow\_enabled | Bool to enable airflow | `bool` | `true` | no |
 | all\_enabled | Bool to enable all services | `bool` | `true` | no |
 | aws\_region | The region to deploy in | `string` | `"us-west-2"` | no |
-| elk-stack\_enabled | Bool to enable elk-stack | `bool` | `false` | no |
-| fluentd\_enabled | Bool to enable fluentd | `bool` | `false` | no |
-| id | The id of the resources | `string` | `"amz"` | no |
-| nginx\_ingress\_enabled | Bool to enable nginx ingress | `bool` | `true` | no |
+| id | The id of the resources | `string` | n/a | yes |
 | prometheus-operator\_enabled | Bool to enable prometheus-operator | `bool` | `true` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| airflow | Airflow installed |
 | cluster\_arn | The Amazon Resource Name (ARN) of the cluster. |
 | cluster\_certificate\_authority\_data | Nested attribute containing certificate-authority-data for your cluster. This is the base64 encoded certificate data required to communicate with your cluster. |
 | cluster\_endpoint | The endpoint for your EKS Kubernetes API. |
@@ -115,9 +108,6 @@ No requirements.
 | cluster\_security\_group\_id | Security group ID attached to the EKS cluster. |
 | cluster\_version | The Kubernetes server version for the EKS cluster. |
 | config\_map\_aws\_auth | A kubernetes configuration to authenticate to this EKS cluster. |
-| elk-stack | ELK Stack installed |
-| fluentd | Fluentd installed |
-| nginx\_ingress | Nginx Ingress installed |
 | prometheus-operator | Prometheus Operator installed |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
