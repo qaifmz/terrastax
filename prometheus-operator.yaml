@@ -525,7 +525,7 @@ grafana:
   #      revision: 14
   #      datasource: Prometheus
 
-  adminPassword: admin
+  adminPassword: ${admin_password}
 
   ingress:
     ## If true, Grafana Ingress will be created

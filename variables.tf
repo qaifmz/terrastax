@@ -37,3 +37,9 @@ variable "prometheus-operator_enabled" {
   type        = bool
   default     = true
 }
+
+variable "admin_password" {
+  description = "Grafana admin password"
+  type        = string
+  default     = "admin"
+}

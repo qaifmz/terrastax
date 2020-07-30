@@ -87,11 +87,13 @@ No requirements.
 |------|---------|
 | helm | n/a |
 | random | n/a |
+| template | n/a |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| admin\_password | Grafana admin password | `string` | `"admin"` | no |
 | all\_enabled | Bool to enable all services | `bool` | `true` | no |
 | aws\_region | The region to deploy in | `string` | `"us-west-2"` | no |
 | id | The id of the resources | `string` | `"amz"` | no |
