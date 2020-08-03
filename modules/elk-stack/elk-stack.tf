@@ -1,6 +1,10 @@
-# Create Template
-data "template_file" "elk-stack" {
-  template = "${file("${path.module}/elk-stack.yaml")}"
+# Helm Provider
+provider "helm" {}
+
+# Helm Chart Stable Repo
+data "helm_repository" "stable" {
+  name = "stable"
+  url  = "https://kubernetes-charts.storage.googleapis.com"
 }
 
 variable "elk-stack_enabled" {
@@ -9,23 +13,16 @@ variable "elk-stack_enabled" {
   default     = true
 }
 
-# Render template
-resource "null_resource" "create-elk-stack" {
-  count = var.elk-stack_enabled ? 1 : 0
-  triggers = {
-    manifest_sha1 = "${sha1("${data.template_file.elk-stack.rendered}")}"
-  }
-  # Run Command to create services
-  provisioner "local-exec" {
-    command = "kubectl create -f -<<EOF\n${data.template_file.elk-stack.rendered}\nEOF"
-  }
-}
-
-# Run Command on Destroy
-resource "null_resource" "destroy-elk-stack" {
-  count = var.elk-stack_enabled ? 1 : 0
-  provisioner "local-exec" {
-    when    = "destroy"
-    command = "kubectl delete -f -<<EOF\n${data.template_file.elk-stack.rendered}\nEOF"
-  }
+# Deploy Helm Chart
+resource "helm_release" "elastic-stack" {
+  count = var.elastic-stack_enabled ? 1 : 0
+  name  = "elastic-stack"
+  chart = "./charts/elk"
+  #repository       = data.helm_repository.stable.metadata[0].name
+  create_namespace = "true"
+  namespace        = "elastic-stack"
+  #values           = [file("${path.module}/elastic-stack.yaml")]
+  wait         = true
+  force_update = true
+  # timeout          = 900
 }
