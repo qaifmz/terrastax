@@ -33,7 +33,7 @@ variable "all_enabled" {
 variable "prometheus-operator_enabled" {
   description = "Bool to enable prometheus-operator"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "airflow_enabled" {
@@ -41,6 +41,10 @@ variable "airflow_enabled" {
   type        = bool
   default     = true
 }
+
+################################
+# Prometheus Operator Variables
+################################
 
 variable "admin_password" {
   description = "Grafana admin password"
@@ -52,4 +56,26 @@ variable "airflow_host" {
   description = "Airflow host Address"
   type        = string
   default     = "localhost"
+}
+
+####################
+# Airflow Variables
+####################
+
+variable "fernetKey" {
+  description = "Airflow Fernet Key"
+  type        = string
+  default     = "7T512UXSSmBOkpWimFHIVb8jK6lfmSAvx4mO6Arehnc="
+}
+
+variable "prometheus_selector" {
+  description = "Airflow Prometheus Selector"
+  type        = string
+  default     = "kube-prometheus"
+}
+
+variable "prometheus_selector_path" {
+  description = "Airflow Prometheus Selector path"
+  type        = string
+  default     = "/admin/metrics"
 }

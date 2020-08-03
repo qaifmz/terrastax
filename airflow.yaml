@@ -39,7 +39,7 @@ airflow:
   ## GENERATE:
   ##   python -c "from cryptography.fernet import Fernet; FERNET_KEY = Fernet.generate_key().decode(); print(FERNET_KEY)"
   ##
-  fernetKey: "7T512UXSSmBOkpWimFHIVb8jK6lfmSAvx4mO6Arehnc="
+  fernetKey: ${fernetKey}
 
   ## environment variables for the web/scheduler/worker Pods (for airflow configs)
   ##
@@ -1324,11 +1324,11 @@ serviceMonitor:
   ## labels for ServiceMonitor, so that Prometheus can select it
   ##
   selector:
-    prometheus: kube-prometheus
+    prometheus: ${airflow_selector}
 
   ## the ServiceMonitor web endpoint path
   ##
-  path: /admin/metrics
+  path: ${airflow_selector_path}
 
   ## the ServiceMonitor web endpoint interval
   ##

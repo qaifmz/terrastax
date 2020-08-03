@@ -7,7 +7,9 @@ locals {
 data "template_file" "airflow" {
   template = yamlencode(yamldecode(file(local.this_template)))
   vars = {
-    admin_password = var.admin_password
+    fernetKey                = var.fernetKey
+    prometheus_selector      = var.prometheus_selector
+    prometheus_selector_path = var.prometheus_selector_path
   }
 }
 

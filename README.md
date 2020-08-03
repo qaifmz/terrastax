@@ -98,8 +98,11 @@ No requirements.
 | airflow\_host | Airflow host Address | `string` | `"localhost"` | no |
 | all\_enabled | Bool to enable all services | `bool` | `true` | no |
 | aws\_region | The region to deploy in | `string` | n/a | yes |
+| fernetKey | Airflow Fernet Key | `string` | `"7T512UXSSmBOkpWimFHIVb8jK6lfmSAvx4mO6Arehnc="` | no |
 | id | The id of the resources | `string` | n/a | yes |
-| prometheus-operator\_enabled | Bool to enable prometheus-operator | `bool` | `true` | no |
+| prometheus-operator\_enabled | Bool to enable prometheus-operator | `bool` | `false` | no |
+| prometheus\_selector | Airflow Prometheus Selector | `string` | `"kube-prometheus"` | no |
+| prometheus\_selector\_path | Airflow Prometheus Selector path | `string` | `"/admin/metrics"` | no |
 
 ## Outputs
 
