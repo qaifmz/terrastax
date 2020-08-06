@@ -14,15 +14,15 @@ variable "elk-stack_enabled" {
 }
 
 # Deploy Helm Chart
-resource "helm_release" "elastic-stack" {
-  count = var.elastic-stack_enabled ? 1 : 0
-  name  = "elastic-stack"
-  chart = "./charts/elk"
-  #repository       = data.helm_repository.stable.metadata[0].name
-  create_namespace = "true"
-  namespace        = "elastic-stack"
-  #values           = [file("${path.module}/elastic-stack.yaml")]
+resource "helm_release" "elk-stack" {
+  count = var.elk-stack_enabled ? 1 : 0
+  name  = "elk-stack"
+  chart = "${path.module}/charts/elk"
+  # repository       = data.helm_repository.stable.metadata[0].name
+  # create_namespace = "true"
+  # namespace        = "elk-stack"
+  # values           = [file("${path.module}/elk-stack.yaml")]
+  # timeout          = 900
   wait         = true
   force_update = true
-  # timeout          = 900
 }
