@@ -24,5 +24,5 @@ resource "helm_release" "elastic-stack" {
   #values           = [file("${path.module}/elastic-stack.yaml")]
   wait         = true
   force_update = true
-  # timeout          = 900
+  # timeout         = 900
 }

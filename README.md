@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/circleci/build/github/qaifmz/terrastax?style=for-the-badge)](https://app.circleci.com/pipelines/github/qaifmz/terrastax?branch=master)
+[![Build Status](https://img.shields.io/circleci/build/github/qaifmz/terrastax/test?style=for-the-badge)](https://app.circleci.com/pipelines/github/qaifmz/terrastax?branch=master)
 [![open-issues](https://img.shields.io/github/issues/qaifmz/terrastax?style=for-the-badge)](https://github.com/qaifmz/terrastax/issues)
 [![open-pr](https://img.shields.io/github/issues-pr/qaifmz/terrastax?style=for-the-badge)](https://github.com/qaifmz/terrastax/pulls)
 
@@ -79,15 +79,11 @@ No issue is creating limit on this module.
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
-| Name | Version |
-|------|---------|
-| kubernetes | 1.10 |
+No requirements.
 
 ## Providers
 
-| Name | Version |
-|------|---------|
-| aws | n/a |
+No provider.
 
 ## Inputs
 
@@ -108,7 +104,6 @@ No issue is creating limit on this module.
 |------|-------------|
 | airflow | Airflow installed |
 | elk-stack | ELK Stack installed |
-| fluentd | Fluentd installed |
 | nginx\_ingress | Nginx Ingress installed |
 | prometheus-operator | Prometheus Operator installed |
 

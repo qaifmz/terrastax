@@ -1,8 +1,19 @@
+##############
+# Random
+##############
+resource "random_pet" "this" {
+  length = 1
+}
+
 variable "id" {
   description = "The id of the resources"
   type        = string
   default     = "amz"
 }
+
+##############
+# Provider
+##############
 
 variable "aws_region" {
   description = "The region to deploy in"
@@ -14,17 +25,21 @@ provider "aws" {
   region = var.aws_region
 }
 
-module "eks" {
-  source = "github.com/qaifmz/terraform-aws-eks-base"
+##############
+# Base
+##############
+
+module "defaults" {
+  source = "../.."
   id     = var.id
 }
 
 data "aws_eks_cluster" "cluster" {
-  name = module.eks.cluster_id
+  name = module.defaults.cluster_id
 }
 
 data "aws_eks_cluster_auth" "cluster" {
-  name = module.eks.cluster_id
+  name = module.defaults.cluster_id
 }
 
 provider "kubernetes" {
@@ -33,8 +48,4 @@ provider "kubernetes" {
   token                  = data.aws_eks_cluster_auth.cluster.token
   load_config_file       = false
   version                = "1.10"
-}
-
-resource "random_pet" "this" {
-  length = 2
 }
