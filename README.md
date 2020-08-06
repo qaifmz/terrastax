@@ -49,7 +49,7 @@ Initialize and Run Terraform Scripts
 terraform init
 terraform apply
 ```
-Default Cluster name = `"terrastax"` and AWS Region: `us-west-2`
+Default Cluster name = `"amz"` and AWS Region: `us-west-2`
 
 If the output gives connection errors, input the following commands:
 ```
